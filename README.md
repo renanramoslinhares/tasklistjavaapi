@@ -1,40 +1,31 @@
-# java-getting-started
 
-A barebones Java app, which can easily be deployed to Heroku.
 
-This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+# JAVA API - TaskList
 
-## Running Locally
+  ## Como acessar
+    No ar: "https://tasklistjavaapi.herokuapp.com/";
 
-Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
+    Esta é uma api JAVA que oferece ao frontend a condições de gerenciar uma 'tasklist';
 
-```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
-$ mvn install
-$ heroku local:start
-```
+    Temos as seguntes ações a baixo:
+    getTasks, getTask, putTask, postTask e deleteTask.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+    Para executá-las é necessário acessar o endereço publicado acima somando a ele  o caminho e método correto;
+    exemplo: [GET] http://tasklistjavaapi.herokuapp.com/task/5
 
-If you're going to use a database, ensure you have a local `.env` file that reads something like this:
+## // [GET] '/tasks/'
+    Retorna toda a lista da tabela 'tasks'.
 
-```
-JDBC_DATABASE_URL=jdbc:postgresql://localhost:5432/java_database_name
-```
+## // [GET] '/task/{id}'
+    Retorna apenas um único registro da tabela 'tasks'. Sendo obrigatório o fornecimento do "id";  
 
-## Deploying to Heroku
+## // [PUT] '/task/{id}'
+    Edita um registro específico da tabela 'tasks'. É obrigatório o fornecimento do "id"; 'update_at' e 'done_at' não precisam ser setadas pelo front;
+  
+## // [POST] '/task/'
+    Cria um novo registro. Sendo obrigatorio apenas o fornecimento do 'title' atravez do corpo da requisição;
 
-```sh
-$ heroku create
-$ git push heroku main
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Java on Heroku, see these Dev Center articles:
-
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
+## // [DELETE] '/task/{id}'
+    Efetua um 'soft delete' no registro.
+    Demais funções de GET devem restringir o acesso destes pelos 'client'.
