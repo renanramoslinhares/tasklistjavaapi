@@ -1,4 +1,4 @@
-package com.example;
+package com.tasklist;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -46,6 +46,11 @@ public class Main {
     - integração com biblioteca JSON;
     - implementação de bind tipo 'PreparedStatement.setString()';
   */
+  // [GET] - Raiz do projeto
+  @GetMapping("/")
+    String index() {
+      return "Esta é apenas a raiz do projeto. Acesse utilizando o método e o caminho correto. Mais informações: https://github.com/renanramoslinhares/tasklistjavaapi/";
+    }
 
   // [GET] - getTasks retorna toda a lista da tabela 'tasks'. Por hora está retornando inteira;
   @GetMapping("/tasks/")

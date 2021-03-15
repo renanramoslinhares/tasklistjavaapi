@@ -291,10 +291,10 @@ Modify `pom.xml` to include a dependency for `jscience` by adding the following 
 </dependency>
 ```
 
-Now add the following `import` statements to `src/main/java/com/example/Main.java` to import the library:
+Now add the following `import` statements to `src/main/java/com/tasklist/Main.java` to import the library:
 
 ```java
-:::>> file.append src/main/java/com/example/Main.java#19
+:::>> file.append src/main/java/com/tasklist/Main.java#19
 import static javax.measure.unit.SI.KILOGRAM;
 import javax.measure.quantity.Mass;
 import org.jscience.physics.model.RelativisticModel;
@@ -304,7 +304,7 @@ import org.jscience.physics.amount.Amount;
 Add the following `hello ` method to `Main.java`:
 
 ```java
-:::>> file.append src/main/java/com/example/Main.java#59
+:::>> file.append src/main/java/com/tasklist/Main.java#59
 @RequestMapping("/hello")
 String hello(Map<String, Object> model) {
     RelativisticModel.select();
@@ -328,7 +328,7 @@ Finally, create a `src/main/resources/templates/hello.html` file with these cont
 </html>
 ```
 
-[Here's the final source code](https://github.com/heroku/java-getting-started/blob/localchanges/src/main/java/com/example/Main.java) for `Main.java` - yours should look similar.  [Here's a diff](https://github.com/heroku/java-getting-started/compare/localchanges) of all the local changes you should have made.
+[Here's the final source code](https://github.com/heroku/java-getting-started/blob/localchanges/src/main/java/com/tasklist/Main.java) for `Main.java` - yours should look similar.  [Here's a diff](https://github.com/heroku/java-getting-started/compare/localchanges) of all the local changes you should have made.
 
 Now test your changes locally:
 
@@ -372,14 +372,14 @@ Finally, check that your updated code is successfully deployed:
 
 Heroku lets you externalize your app's configuration by storing data such as encryption keys or external resource addresses in [config vars](config-vars).
 
-At runtime, config vars are exposed to your app as environment variables. For example, modify `src/main/java/com/example/Main.java` so that the method obtains an energy value from the `ENERGY` environment variable:
+At runtime, config vars are exposed to your app as environment variables. For example, modify `src/main/java/com/tasklist/Main.java` so that the method obtains an energy value from the `ENERGY` environment variable:
 
 ```
-:::-- $ sed -e '56,68d' src/main/java/com/example/Main.java
+:::-- $ sed -e '56,68d' src/main/java/com/tasklist/Main.java
 ```
 
 ```java
-:::>> file.append("src/main/java/com/example/Main.java#56")
+:::>> file.append("src/main/java/com/tasklist/Main.java#56")
 @RequestMapping("/hello")
 String hello(Map<String, Object> model) {
     RelativisticModel.select();
@@ -497,7 +497,7 @@ The example app you deployed already has database functionality, which you can r
 The code to access the database is straightforward. Here's the method to insert values into a table called `tick`:
 
 ```java
-:::-> $ sed -n '45,50p;78,109p' src/main/java/com/example/Main.java
+:::-> $ sed -n '45,50p;78,109p' src/main/java/com/tasklist/Main.java
 ```
 
 This ensures that when you access your app using the `/db` route, a new row is added to the `tick` table, and all rows are then returned so that they can be rendered in the output.

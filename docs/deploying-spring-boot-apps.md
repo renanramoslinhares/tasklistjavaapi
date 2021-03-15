@@ -58,11 +58,11 @@ Then move into the application directory:
 :::>- $ cd demo
 ```
 
-The application does not have any custom logic by default -- it's just an empty template. To add some behavior, open the `src/main/java/com/example/demo/DemoApplication.java` file and put the following code in it:
+The application does not have any custom logic by default -- it's just an empty template. To add some behavior, open the `src/main/java/com/tasklist/demo/DemoApplication.java` file and put the following code in it:
 
 ```java
-:::>> file.write src/main/java/com/example/demo/DemoApplication.java
-package com.example.demo;
+:::>> file.write src/main/java/com/tasklist/demo/DemoApplication.java
+package com.tasklist.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -195,7 +195,7 @@ Then you can then add a configuration bean to your app.
 
 ```java
 :::>> file.write src/main/java/demo/DatabaseConfig.java
-package com.example.demo;
+package com.tasklist.demo;
 
 import com.zaxxer.hikari.*;
 import org.springframework.beans.factory.annotation.Value;
