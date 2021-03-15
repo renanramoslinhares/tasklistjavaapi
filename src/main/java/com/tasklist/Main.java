@@ -57,26 +57,19 @@ public class Main {
   String getTasks() {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM tasks WHERE removed_at IS NULL");
+      ResultSet rs = stmt.executeQuery("SELECT id, title, status, description FROM tasks WHERE removed_at IS NULL");
       ArrayList<String> output = new ArrayList<String>();      
       while (rs.next()) {
         String id = rs.getString("id");
         String title = rs.getString("title");
         String status = rs.getString("status");
         String description = rs.getString("description");
-        String created_at = rs.getString("created_at");
-        String updated_at = rs.getString("updated_at");
-        // String removed_at = rs.getString("removed_at");
-        String done_at = rs.getString("done_at");
         output.add(
-          "{\"id\":"+id+
-          ",\"title\":\""+title+
-          "\",\"status\":\""+status+
-          "\",\"description\":\""+description+
-          "\",\"created_at\":\""+created_at+
-          "\",\"updated_at\":\""+updated_at+
-          // "\",\"removed_at\":\""+removed_at+
-          "\",\"done_at\":\""+done_at+"\"}"
+          "{\"id\":"+id
+          +",\"title\":\""+title
+          +"\",\"status\":\""+status
+          +"\",\"description\":\""+description
+          +"\"}"
         );
       }
       return output.toString();      
@@ -90,26 +83,26 @@ public class Main {
   String getTask(@PathVariable("id") String id) {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM tasks WHERE id = " + id + " AND removed_at IS NULL LIMIT 1");
+      ResultSet rs = stmt.executeQuery(
+        "SELECT title, status, description, created_at, updated_at, done_at FROM tasks WHERE id = "
+        + id + " AND removed_at IS NULL LIMIT 1"
+      );
       rs.next();
       String title = rs.getString("title");
       String status = rs.getString("status");
       String description = rs.getString("description");
       String created_at = rs.getString("created_at");
       String updated_at = rs.getString("updated_at");
-      // String removed_at = rs.getString("removed_at");
       String done_at = rs.getString("done_at");
 
-      return
-      "{\"id\":"+id+
-        ",\"title\":\""+title+
-        "\",\"status\":\""+status+
-        "\",\"description\":\""+description+
-        "\",\"created_at\":\""+created_at+
-        "\",\"updated_at\":\""+updated_at+
-        // "\",\"removed_at\":\""+removed_at+
-        "\",\"done_at\":\""+done_at+
-      "\"}";
+      return "{\"id\":"+id
+        +",\"title\":\""+title
+        +"\",\"status\":\""+status
+        +"\",\"description\":\""+description
+        +"\",\"created_at\":\""+created_at
+        +"\",\"updated_at\":\""+updated_at
+        +"\",\"done_at\":\""+done_at
+        +"\"}";
     } catch (Exception e) {      
       return "{\"error\":\"true\", \"message\":\""+e.getMessage()+"\"}";
     }
