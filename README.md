@@ -4,15 +4,16 @@
   ## Sobre
   Este projeto é parte de um desafio. Composto por:
   - Este backend. Aqui chamado apenas como API;
-  - E o frontend. Que se encontra neste repositório: https://github.com/renanramoslinhares/tasklistfront
+  - E o frontend. Que se encontra neste repositório: `https://github.com/renanramoslinhares/tasklistfront`;
 
-  Esta API oferece ao frontend as condições de gerenciar as tarefas, que são objeto do projeto;
+  Esta API oferece ao frontend as condições de gerenciar as tarefas, que são objeto do projeto.
+  Desta forma atua como "ponte" entre o cliente e o banco de dados.
 
   Temos as seguintes ações no controller `Main.java`:
   getTasks, getTask, putTask, postTask e deleteTask.
 
   ## Como consumir
-  Para executar você deve enviar uma requisição para a URL da api: "https://tasklistjavaapi.herokuapp.com/";
+  Para executar você deve enviar uma requisição para a URL da api: `https://tasklistjavaapi.herokuapp.com/`;
   É necessário somar a ela o caminho e o método correto;
   Veja abaixo quais são eles.
   Exemplo: [GET] `http://tasklistjavaapi.herokuapp.com/task/1`.
@@ -23,13 +24,16 @@
   Retorna toda a lista da tabela 'tasks'.
 
   #### // [GET] '/task/{id}'
-  Retorna apenas um único registro da tabela 'tasks'. Sendo obrigatório o fornecimento do "id";  
+  Retorna apenas um único registro da tabela 'tasks'. Sendo obrigatório o fornecimento do "id".
 
   #### // [PUT] '/task/{id}'
-  Edita um registro específico da tabela 'tasks'. É obrigatório o fornecimento do "id"; 'update_at' e 'done_at' não precisam ser setadas pelo front;
+  Edita um registro específico da tabela 'tasks'.
+  É obrigatório o fornecimento do "id".
+  Observação: As colunas 'update_at' e 'done_at' não precisam ser setadas pelo client/front.
   
   #### // [POST] '/task/'
-  Cria um novo registro. Sendo obrigatorio apenas o fornecimento do 'title' atravez do corpo da requisição;
+  Cria um novo registro.
+  Sendo obrigatorio apenas o fornecimento do 'title' atravez do corpo da requisição.
 
   #### // [DELETE] '/task/{id}'
   Efetua um 'soft delete' no registro.
