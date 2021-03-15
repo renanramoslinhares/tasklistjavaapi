@@ -1,31 +1,36 @@
+# TaskList - API
+### Feito com Java e Spring
 
+  ## Sobre
+  Este projeto é parte de um desafio. Composto por:
+  - Este backend. Aqui chamado apenas como API;
+  - E o frontend. Que se encontra neste repositório: https://github.com/renanramoslinhares/tasklistfront
 
+  Esta API oferece ao frontend as condições de gerenciar as tarefas, que são objeto do projeto;
 
-# JAVA API - TaskList
+  Temos as seguintes ações no controller `Main.java`:
+  getTasks, getTask, putTask, postTask e deleteTask.
 
-  ## Como acessar
-    No ar: "https://tasklistjavaapi.herokuapp.com/";
-
-    Esta é uma api JAVA que oferece ao frontend a condições de gerenciar uma 'tasklist';
-
-    Temos as seguntes ações a baixo:
-    getTasks, getTask, putTask, postTask e deleteTask.
-
-    Para executá-las é necessário acessar o endereço publicado acima somando a ele  o caminho e método correto;
-    exemplo: [GET] http://tasklistjavaapi.herokuapp.com/task/5
-
-## // [GET] '/tasks/'
-    Retorna toda a lista da tabela 'tasks'.
-
-## // [GET] '/task/{id}'
-    Retorna apenas um único registro da tabela 'tasks'. Sendo obrigatório o fornecimento do "id";  
-
-## // [PUT] '/task/{id}'
-    Edita um registro específico da tabela 'tasks'. É obrigatório o fornecimento do "id"; 'update_at' e 'done_at' não precisam ser setadas pelo front;
+  ## Como consumir
+  Para executar você deve enviar uma requisição para a URL da api: "https://tasklistjavaapi.herokuapp.com/";
+  É necessário somar a ela o caminho e o método correto;
+  Veja abaixo quais são eles.
+  Exemplo: [GET] `http://tasklistjavaapi.herokuapp.com/task/1`.
   
-## // [POST] '/task/'
-    Cria um novo registro. Sendo obrigatorio apenas o fornecimento do 'title' atravez do corpo da requisição;
+  ## Requisições
 
-## // [DELETE] '/task/{id}'
-    Efetua um 'soft delete' no registro.
-    Demais funções de GET devem restringir o acesso destes pelos 'client'.
+  #### // [GET] '/tasks/'
+  Retorna toda a lista da tabela 'tasks'.
+
+  #### // [GET] '/task/{id}'
+  Retorna apenas um único registro da tabela 'tasks'. Sendo obrigatório o fornecimento do "id";  
+
+  #### // [PUT] '/task/{id}'
+  Edita um registro específico da tabela 'tasks'. É obrigatório o fornecimento do "id"; 'update_at' e 'done_at' não precisam ser setadas pelo front;
+  
+  #### // [POST] '/task/'
+  Cria um novo registro. Sendo obrigatorio apenas o fornecimento do 'title' atravez do corpo da requisição;
+
+  #### // [DELETE] '/task/{id}'
+  Efetua um 'soft delete' no registro.
+  Demais funções de GET devem restringir o acesso destes pelos 'client'.
