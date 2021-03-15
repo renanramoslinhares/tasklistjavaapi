@@ -20,21 +20,21 @@
   
   ## Requisições
 
-  #### // [GET] '/tasks/'
+  #### [GET] '/tasks/'
   Retorna toda a lista da tabela 'tasks'.
 
-  #### // [GET] '/task/{id}'
+  #### [GET] '/task/{id}'
   Retorna apenas um único registro da tabela 'tasks'. Sendo obrigatório o fornecimento do "id".
 
-  #### // [PUT] '/task/{id}'
+  #### [PUT] '/task/{id}'
   Edita um registro específico da tabela 'tasks'.
   É obrigatório o fornecimento do "id".
   Observação: As colunas 'update_at' e 'done_at' não precisam ser setadas pelo client/front.
   
-  #### // [POST] '/task/'
+  #### [POST] '/task/'
   Cria um novo registro.
   Sendo obrigatorio apenas o fornecimento do 'title' atravez do corpo da requisição.
 
-  #### // [DELETE] '/task/{id}'
+  #### [DELETE] '/task/{id}'
   Efetua um 'soft delete' no registro.
   Demais funções de GET devem restringir o acesso destes pelos 'client'.
